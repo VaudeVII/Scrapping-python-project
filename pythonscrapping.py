@@ -4,14 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import csv
 import json
-#essentials
+
 browser = webdriver.Chrome()
 target_url = "https://scrapingsandbox.com/data-table"
 browser.get(target_url)
 pages = int(input("enter a number for how many pages you want"))
 repeated_stuff = 0
 product_information = []
-#star of the show, movin and extractin
+
 try:
     while repeated_stuff < pages:
         next_page_button = WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-slot='button']:has(svg.lucide-chevron-right)")))
@@ -31,7 +31,6 @@ try:
 finally:
     browser.quit()
 
-#finally saving
 with open("extractedinfoproducts.json", "w", encoding="utf-8") as f:
     json.dump(product_information, f, indent=4) 
 
