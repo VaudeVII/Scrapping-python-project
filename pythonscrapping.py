@@ -18,7 +18,7 @@ try:
 
         product_name = [pname.text for pname in browser.find_elements(By.CSS_SELECTOR, 'a[href^="/product/"]')]
         product_category = [pcategory.text for pcategory in browser.find_elements(By.CSS_SELECTOR, '[data-slot="badge"]')]
-        product_price = [pprice.text for pprice in browser.find_elements(By.CSS_SELECTOR, '[data-slot="table-cell"]')]
+        product_price = [pprice.text for pprice in browser.find_elements(By.CSS_SELECTOR, 'td.price')]
         product_rating = [prating.text for prating in browser.find_elements(By.CSS_SELECTOR, 'span.text-xs:not(.text-terminal-green)')]
         product_availability = [pavailability.text for pavailability in browser.find_elements(By.CSS_SELECTOR, 'span.text-xs.text-terminal-green')]
 
